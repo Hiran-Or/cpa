@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "FlashBOT AutoForm",
+  "version": "1.7",
+  "description": "Preenchimento automático de formulários de cadastro. E-mail: bot@novoslot.top - ig @FlashBOTCPA",
+  "permissions": [
+    "activeTab",
+    "webNavigation",
+    "tabs",
+    "webRequest",
+    "storage",
+    "scripting",
+    "nativeMessaging",
+    "declarativeNetRequest"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "block",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
